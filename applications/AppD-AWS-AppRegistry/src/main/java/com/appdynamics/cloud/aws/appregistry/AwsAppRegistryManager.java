@@ -68,7 +68,7 @@ public class AwsAppRegistryManager {
 		
 		CreateApplicationRequest caReq = new CreateApplicationRequest();
 		
-		caReq.setName(AppRegUtils.getAppRegistryAppName(appdApp));
+		caReq.setName(AppRegUtils.getAppRegistryAppName(config, appdApp));
 		caReq.setDescription(appdApp.getDescription());
 		caReq.addTagsEntry(ADTAGKEY_APP_ID, appdApp.getId() + "");
 		caReq.addTagsEntry(ADTAGKEY_APP_NAME, appdApp.getName());
@@ -80,8 +80,8 @@ public class AwsAppRegistryManager {
 		Application awsApp = caRes.getApplication();
 		
 		CreateAttributeGroupRequest cagReq = new CreateAttributeGroupRequest();
-		cagReq.setName(AppRegUtils.getAppRegistryAttrGroupName(appdApp));
-		cagReq.setDescription("Json model for Application : " + AppRegUtils.getAppRegistryAppName(appdApp));
+		cagReq.setName(AppRegUtils.getAppRegistryAttrGroupName(config, appdApp));
+		cagReq.setDescription("Json model for Application : " + AppRegUtils.getAppRegistryAppName(config, appdApp));
 		
 		//lgr.info("    - AttrGroup Name: " + cagReq.getName());
 		//lgr.info("    - AttrGroup Description: " + cagReq.getDescription());
@@ -91,7 +91,7 @@ public class AwsAppRegistryManager {
 		String json = gson.toJson(appdApp);
 		cagReq.setAttributes(json);
 		
-		StringUtils.saveStringAsFile(config.getJsonFilesDirectory() + "/" + caReq.getName() + ".json", json);
+		//StringUtils.saveStringAsFile(config.getJsonFilesDirectory() + "/" + caReq.getName() + ".json", json);
 		
 		CreateAttributeGroupResult cagRes = this.appRegistry.createAttributeGroup(cagReq);
 		AttributeGroup attrGroup = cagRes.getAttributeGroup();

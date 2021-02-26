@@ -17,6 +17,7 @@ public class ApplicationConfig {
 	private String controllerHostName;
 	private Integer controllerPort;
 	private Boolean controllerSslEnabled;
+	private Boolean addAppIdToAppName;
 	private String jsonFilesDirectory;
 	
 	private List<String> applicationNames;
@@ -87,6 +88,16 @@ public class ApplicationConfig {
 
 	public void setControllerSslEnabled(Boolean controllerSslEnabled) {
 		this.controllerSslEnabled = controllerSslEnabled;
+	}
+
+
+	public Boolean getAddAppIdToAppName() {
+		return addAppIdToAppName;
+	}
+
+
+	public void setAddAppIdToAppName(Boolean addAppIdToAppName) {
+		this.addAppIdToAppName = addAppIdToAppName;
 	}
 
 

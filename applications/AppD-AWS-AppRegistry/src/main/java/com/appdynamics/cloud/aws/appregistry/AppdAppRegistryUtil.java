@@ -26,6 +26,8 @@ public class AppdAppRegistryUtil {
 	protected static final String APP_ACTION_DELETE = "delete";
 	protected static final String APP_ACTION_LIST = "list";
 	
+	public static boolean APP_ADD_APPID2NAME = false;
+	
 	
 	
 	protected static ApplicationConfig APP_CONFIG;
@@ -80,13 +82,14 @@ public class AppdAppRegistryUtil {
 			InputStream inputStream = StringUtils.getFileAsStream(confPath);
 			APP_CONFIG = yaml.load(inputStream);
 			
-			lgr.info("");
-			lgr.info(" - Found " + APP_CONFIG.getApplicationNames().size() + " Applications configured to '" + action + "'");
 			
 			
 			switch (action) {
 			
 			case APP_ACTION_CREATE:
+
+				lgr.info("");
+				lgr.info(" - Found " + APP_CONFIG.getApplicationNames().size() + " Applications configured to '" + action + "'");
 				
 				create();
 				break;
@@ -97,6 +100,9 @@ public class AppdAppRegistryUtil {
 				break;
 
 			case APP_ACTION_LIST:
+				
+				lgr.info("");
+				lgr.info(" - Listing ALL Applications within AppRegistry");
 				
 				list();
 				break;

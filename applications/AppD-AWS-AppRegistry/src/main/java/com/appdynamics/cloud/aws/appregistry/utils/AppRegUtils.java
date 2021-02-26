@@ -3,6 +3,7 @@
  */
 package com.appdynamics.cloud.aws.appregistry.utils;
 
+import com.appdynamics.cloud.aws.appregistry.ApplicationConfig;
 import com.appdynamics.cloud.aws.appregistry.json.Application;
 
 /**
@@ -18,17 +19,25 @@ public class AppRegUtils {
 		
 	}
 
-	public static String getAppRegistryAppName(Application appdApp) throws Throwable {
+	public static String getAppRegistryAppName(ApplicationConfig config, Application appdApp) throws Throwable {
 		
-		String baseName = appdApp.getName() + "_" + appdApp.getId();
+		String baseName = "";
+		
+		if (config.getAddAppIdToAppName() != null && config.getAddAppIdToAppName()) {
+			baseName = appdApp.getName() + "_" + appdApp.getId();
+		} else {
+			baseName = appdApp.getName();
+		}
+		
+		
 		String finalName = StringUtils.replaceAll(baseName, " ", "_");
 		finalName = StringUtils.replaceAll(finalName, "-", "_");
 		return finalName;
 		
 	}
 	
-	public static String getAppRegistryAttrGroupName(Application appdApp) throws Throwable {
-		return getAppRegistryAppName(appdApp) + "_AG";
+	public static String getAppRegistryAttrGroupName(ApplicationConfig config, Application appdApp) throws Throwable {
+		return getAppRegistryAppName(config, appdApp) + "_AG";
 		
 	}	
 	
