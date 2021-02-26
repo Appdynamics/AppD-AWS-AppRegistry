@@ -10,7 +10,7 @@ Prototype utility of an [AppDynamics](https://www.appdynamics.com) integration w
   - Needed to run the utility Jar file [AppD-AWS-AppRegistry.jar](https://github.com/Appdynamics/AppD-AWS-AppRegistry/blob/main/AppD-AWS-AppRegistry.jar)
 - AWS Account
   - An AWS user in the account with appropriate permissions for AppRegistry  
-- Maven ( Optional )
+- Maven - ( Optional )
   - Used for re-building the Jar file 
 
 <br>
@@ -21,13 +21,12 @@ The utility Jar file uses the list of application names along with the connectio
 
 The utiltiy Jar file can be run with one of the two supported options:
 
-- create
-- list
+- **Create**
+  - The create option pulls the meta-data of the applications defined in the configuration file from the AppDynamics Controller defined in the configuration file and publishes that data to AppRegistry.
+- **List**
+  - The list option simply lists the details of all the applications contained within AppRegistry.
 
-The **create option** pulls the meta-data of the applications defined in the configuration file from the AppDynamics Controller defined in the configuratioin file and publishes that data to AppRegistry.
-
-The **list option** simply lists the details of all the applications contained within AppRegistry.
-
+<br>
 
 ## Configuration File
 
