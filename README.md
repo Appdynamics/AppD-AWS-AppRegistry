@@ -30,6 +30,32 @@ The utiltiy Jar file can be run with one of the two supported options:
 
 ## Configuration File
 
+The configuration file is where you define the following:
+
+- Connection details to the AppDynamics Controller
+- The list of application names to publish to AppRegistry
+- The option to add the Id of the application to the app name as it is defined in AppRegistry
+
+
+
+```bash
+!!com.appdynamics.cloud.aws.appregistry.ApplicationConfig
+
+controllerAccount: "<controller-account-name>"
+controllerUsername: "<controller-username>"
+controllerPassword: "<controller-password>"
+controllerHostName: "demo1.saas.appdynamics.com"
+controllerPort: 443
+controllerSslEnabled: true
+addAppIdToAppName: false
+
+applicationNames:
+  - AD-Travel
+  - Ecommerce
+  - AD-Movie Tickets Core
+
+```
+
 <br>
 
 ## Create Functionality

@@ -1,7 +1,7 @@
 !!com.appdynamics.cloud.aws.appregistry.ApplicationConfig
 
 controllerAccount: "<controller-account-name>"
-controllerUsername: "<controller-user-name>"
+controllerUsername: "<controller-username>"
 controllerPassword: "<controller-password>"
 controllerHostName: "demo1.saas.appdynamics.com"
 controllerPort: 443
