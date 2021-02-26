@@ -47,6 +47,7 @@ controllerPassword: "<controller-password>"
 controllerHostName: "demo1.saas.appdynamics.com"
 controllerPort: 443
 controllerSslEnabled: true
+
 addAppIdToAppName: false
 
 applicationNames:
