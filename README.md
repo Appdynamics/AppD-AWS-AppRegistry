@@ -57,11 +57,15 @@ applicationNames:
 
 ```
 
+**Note:** At the time this utility was created, AppRegistry had specific naming conventions for the name of each application and each attribute group.  To accomodate this, the utility converts any dash characters and space characters found in the application name as it is defined within AppDynamics, with the underscore character when it publishes the application meta-data to AppRegistry.
+
 <br>
 
 ## Create Functionality
 
 ![image](images/ad-travel-app-01.png)
+
+
 
 <br>
 
