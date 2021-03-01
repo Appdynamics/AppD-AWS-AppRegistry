@@ -115,9 +115,6 @@ This data is found in the [AttributeGroup](https://docs.aws.amazon.com/AWSJavaSD
 
 <br>
 
-https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/appregistry/model/AttributeGroup.html
-
-
 | Attribute Name | Description                                  | Attribute Source | Attribute Type |
 | :------------- | :------------------------------------------- | :--------------: | :------------: |
 | Group Name | The name of the attribute group, similarly named after the application | Controller | Group Attribute |
