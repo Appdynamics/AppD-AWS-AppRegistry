@@ -33,11 +33,20 @@ The utiltiy Jar file can be run with one of the two supported options:
 The configuration file is where you define the following:
 
 - Connection details to the AppDynamics Controller
+  -  controllerAccount
+  -  controllerUsername
+  -  controllerPassword
+  -  controllerPort
+  -  controllerSslEnabled
+  
 - The list of application names to publish to AppRegistry
-- The option to add the Id of the application to the app name as it is defined in AppRegistry
+  -  applicationNames
+  
+- The option to add the AppDynamics Id of the application to the application name when publishing to AppRegistry
+  - addAppIdToAppName
 
 
-
+*Example Configuration File*:
 ```bash
 !!com.appdynamics.cloud.aws.appregistry.ApplicationConfig
 
@@ -48,13 +57,12 @@ controllerHostName: "mydemo.saas.appdynamics.com"
 controllerPort: 443
 controllerSslEnabled: true
 
-addAppIdToAppName: false
-
 applicationNames:
   - AD-Travel
   - Ecommerce
   - AD-Movie Tickets Core
 
+addAppIdToAppName: false
 ```
 
 **Note:** At the time this utility was created, AppRegistry had specific naming conventions for the name of each application and each attribute group.  To accomodate this, the utility converts any dash characters and space characters found in the application name as it is defined within AppDynamics, with the underscore character when it publishes the application meta-data to AppRegistry.
@@ -63,9 +71,18 @@ applicationNames:
 
 ## Create Functionality
 
+The utility connects to the AppDynamics Controller defined in the configuration file (**application-config.yaml**) and then retrieves a list of applications in the Controller.  If any of the application names match one of the application names defined in the configuration file then the utility publishes the data for that application to AppRegistry.
+
+The specific data published for an application is as follows:
+
+
+
 ![image](images/ad-travel-app-01.png)
 
 
+```bash
+java -DappConfigFilePath=<path-to-config-file>/application-config.yaml -DappAction=create -jar <path-to-jar-file>/AppD-AWS-AppRegistry.jar
+```
 
 <br>
 
