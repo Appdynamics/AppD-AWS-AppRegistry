@@ -44,7 +44,7 @@ The configuration file is where you define the following:
 controllerAccount: "<controller-account-name>"
 controllerUsername: "<controller-username>"
 controllerPassword: "<controller-password>"
-controllerHostName: "demo1.saas.appdynamics.com"
+controllerHostName: "mydemo.saas.appdynamics.com"
 controllerPort: 443
 controllerSslEnabled: true
 
